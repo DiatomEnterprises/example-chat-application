@@ -10,4 +10,7 @@
   %body
     .container
       .col-sm-12
+        - if user_signed_in?
+          %p
+            = link_to 'Logout', destroy_user_session_path, class: "text-right", method: :delete
         = yield

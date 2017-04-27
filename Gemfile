@@ -58,5 +58,6 @@ gem 'haml', '~> 4.0', '>= 4.0.7'
 gem 'active_model_serializers', '~> 0.10.5'
 gem 'virtus', '~> 1.0', '>= 1.0.5'
 gem 'draper', '~> 3.0.0.pre1'
+gem 'faker', '~> 1.7', '>= 1.7.3'
 
 gem 'pry'
