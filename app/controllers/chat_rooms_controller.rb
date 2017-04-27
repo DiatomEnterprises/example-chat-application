@@ -1,14 +1,11 @@
 class ChatRoomsController < ApplicationController
 
   def index
-    @chat_rooms = ChatRoom.all
+    @chat_rooms = ChatRoomDecorator.decorate_collection(ChatRoom.all)
   end
 
   def show
-    chat_room = ChatRoom.includes(:messages).find_by(id: params[:id])
-    @presenter = ChatRoomPresenter.new(chat_room: chat_room)
-
-    @message = Message.new
+    @presenter = ChatRoomPresenter.new(chat_room: ChatRoom.find( params[:id]))
   end
 
   def new
@@ -16,10 +13,10 @@ class ChatRoomsController < ApplicationController
   end
 
   def create
-    @chat_room = current_user.chat_rooms.build(chat_room_params)
+    @chat_room = current_user.chat_rooms.new(chat_room_params)
 
     if @chat_room.save
-      flash[:success] = 'Chat room added!'
+      flash[:success] = 'Chat room sucessfully created.'
       redirect_to chat_rooms_path
     else
       render 'new'

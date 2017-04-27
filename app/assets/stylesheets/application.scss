@@ -16,10 +16,9 @@
 
 @import "bootstrap";
 
-#messages {
-  max-height: 450px;
+#chat-box {
+  padding:6px 0px;
+  height: 600px;
   overflow-y: auto;
-  .avatar {
-    margin: 0.5rem;
-  }
+  margin: 20px 0px;
 }

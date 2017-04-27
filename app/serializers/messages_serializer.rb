@@ -4,6 +4,6 @@ class MessagesSerializer < ActiveModel::Serializer
   belongs_to :user, serializer: UsersSerializer
 
   def written_at
-    object.timestamp
+    object.created_at.strftime('%H:%M:%S %d %B %Y')
   end
 end
