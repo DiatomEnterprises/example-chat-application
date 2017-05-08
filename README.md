@@ -1,9 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+To try it out you only need to `clone` the project, run `bundle install` and rake `db:create db:migrate`.
+After that you can run rails server and you are good to go.
 
 * Ruby version
 `2.4.1`
