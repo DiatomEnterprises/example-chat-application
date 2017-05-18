@@ -9,7 +9,11 @@ class ChatRoomsChannel < ApplicationCable::Channel
   end
 
   def send_message(data)
-    # TODO: Need to return error if save failed!
-    current_user.messages.create!(body: data['body'], chat_room_id: data['chat_room_id'])
+    message = current_user.messages.create(body: data['body'], chat_room_id: data['chat_room_id'])
+    if message.errors.present?
+      transmit({type: 'errors', data: message.errors.full_messages})
+    else
+      MessageBroadcastJob.perform_later(message.id)
+    end
   end
 end

@@ -1,7 +1,7 @@
 %h2.text-center
-  = @presenter.chat_room.title
+  = @chat_room.title
   %br
   %small
     = link_to 'Back', chat_rooms_path, class: 'btn btn-primary btn-sx'
 
-= react_component('ChatRoom', { chat_room: @presenter.json_object })
+= react_component('ChatRoom', { chat_room: @json_object })

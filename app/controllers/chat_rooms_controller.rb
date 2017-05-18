@@ -5,7 +5,8 @@ class ChatRoomsController < ApplicationController
   end
 
   def show
-    @presenter = ChatRoomPresenter.new(chat_room: ChatRoom.find( params[:id]))
+    @chat_room = ChatRoom.find( params[:id])
+    @json_object = ChatRoomsSerializer.new(@chat_room).as_json
   end
 
   def new
